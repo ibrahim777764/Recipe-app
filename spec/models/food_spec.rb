@@ -37,7 +37,7 @@ RSpec.describe Food, type: :model do
     it 'measurment should be kg' do
       expect(subject.measurement_unit).to eq 'kg'
     end
-    
+
     it 'price should not be nil' do
       subject.price = nil
       expect(subject).to_not be_valid
