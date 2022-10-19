@@ -28,5 +28,10 @@ RSpec.describe Food, type: :model do
       subject.price = -4
       expect(subject).to_not be_valid
     end
+
+    it 'quantity should not be less than 0' do
+      subject.quantity = -5
+      expect(subject).to_not be_valid
+    end
   end
 end
