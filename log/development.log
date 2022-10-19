@@ -148,3 +148,210 @@ Started GET "/users/sign_in" for ::1 at 2022-10-18 14:35:55 +0500
   
 ActionController::RoutingError (No route matches [GET] "/users/sign_in"):
   
+Started GET "/" for ::1 at 2022-10-19 14:46:31 +0500
+  [1m[35m (5.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+You have 6 pending migrations:
+
+20221003130003_create_users.rb
+20221003130100_create_food.rb
+20221003130750_create_recipe.rb
+20221003130814_create_recipe_food.rb
+20221003131432_add_users_to_foods.rb
+20221003131705_add_user_to_recipes.rb
+
+
+):
+  
+activerecord (7.0.4) lib/active_record/migration.rb:627:in `check_pending!'
+activerecord (7.0.4) lib/active_record/migration.rb:592:in `block (2 levels) in call'
+activesupport (7.0.4) lib/active_support/file_update_checker.rb:83:in `execute'
+activerecord (7.0.4) lib/active_record/migration.rb:597:in `block in call'
+activerecord (7.0.4) lib/active_record/migration.rb:589:in `synchronize'
+activerecord (7.0.4) lib/active_record/migration.rb:589:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.4) lib/rack/method_override.rb:24:in `call'
+rack (2.2.4) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.4) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20221003130003)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221003130003"]]
+  [1m[36mTRANSACTION (5.4ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateFood (20221003130100)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "foods" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "measurement_unit" integer, "price" decimal, "quantity" decimal, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221003130100"]]
+  [1m[36mTRANSACTION (3.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateRecipe (20221003130750)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "recipes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "preparation_time" time, "cooking_time" time, "description" text, "public" boolean, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221003130750"]]
+  [1m[36mTRANSACTION (3.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateRecipeFood (20221003130814)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "recipe_foods" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "food_id" integer NOT NULL, "recipe_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_cef9648c35"
+FOREIGN KEY ("food_id")
+  REFERENCES "foods" ("id")
+, CONSTRAINT "fk_rails_b279eaba63"
+FOREIGN KEY ("recipe_id")
+  REFERENCES "recipes" ("id")
+)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE INDEX "index_recipe_foods_on_food_id" ON "recipe_foods" ("food_id")[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE INDEX "index_recipe_foods_on_recipe_id" ON "recipe_foods" ("recipe_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221003130814"]]
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddUsersToFoods (20221003131432)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.3ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "afoods" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "measurement_unit" integer DEFAULT NULL, "price" decimal DEFAULT NULL, "quantity" decimal DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "afoods" ("id","name","measurement_unit","price","quantity","created_at","updated_at")
+                     SELECT "id","name","measurement_unit","price","quantity","created_at","updated_at" FROM "foods"[0m
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE "foods"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "foods" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "measurement_unit" integer DEFAULT NULL, "price" decimal DEFAULT NULL, "quantity" decimal DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "user_id" integer NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "foods" ("id","name","measurement_unit","price","quantity","created_at","updated_at")
+                     SELECT "id","name","measurement_unit","price","quantity","created_at","updated_at" FROM "afoods"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "afoods"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.3ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "index_foods_on_user_id" ON "foods" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TEMPORARY TABLE "afoods" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "measurement_unit" integer DEFAULT NULL, "price" decimal DEFAULT NULL, "quantity" decimal DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "user_id" integer NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "tindex_afoods_on_user_id" ON "afoods" ("user_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "afoods" ("id","name","measurement_unit","price","quantity","created_at","updated_at","user_id")
+                     SELECT "id","name","measurement_unit","price","quantity","created_at","updated_at","user_id" FROM "foods"[0m
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE "foods"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "foods" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "measurement_unit" integer DEFAULT NULL, "price" decimal DEFAULT NULL, "quantity" decimal DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "user_id" integer NOT NULL, CONSTRAINT "fk_rails_541e2e5c7b"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_foods_on_user_id" ON "foods" ("user_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[32mINSERT INTO "foods" ("id","name","measurement_unit","price","quantity","created_at","updated_at","user_id")
+                     SELECT "id","name","measurement_unit","price","quantity","created_at","updated_at","user_id" FROM "afoods"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "afoods"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221003131432"]]
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddUserToRecipes (20221003131705)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TEMPORARY TABLE "arecipes" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "preparation_time" time DEFAULT NULL, "cooking_time" time DEFAULT NULL, "description" text DEFAULT NULL, "public" boolean DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "arecipes" ("id","name","preparation_time","cooking_time","description","public","created_at","updated_at")
+                     SELECT "id","name","preparation_time","cooking_time","description","public","created_at","updated_at" FROM "recipes"[0m
+  [1m[35m (0.7ms)[0m  [1m[35mDROP TABLE "recipes"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "recipes" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "preparation_time" time DEFAULT NULL, "cooking_time" time DEFAULT NULL, "description" text DEFAULT NULL, "public" boolean DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "user_id" integer NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[32mINSERT INTO "recipes" ("id","name","preparation_time","cooking_time","description","public","created_at","updated_at")
+                     SELECT "id","name","preparation_time","cooking_time","description","public","created_at","updated_at" FROM "arecipes"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "arecipes"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE INDEX "index_recipes_on_user_id" ON "recipes" ("user_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.4ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "arecipes" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "preparation_time" time DEFAULT NULL, "cooking_time" time DEFAULT NULL, "description" text DEFAULT NULL, "public" boolean DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "user_id" integer NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "tindex_arecipes_on_user_id" ON "arecipes" ("user_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "arecipes" ("id","name","preparation_time","cooking_time","description","public","created_at","updated_at","user_id")
+                     SELECT "id","name","preparation_time","cooking_time","description","public","created_at","updated_at","user_id" FROM "recipes"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "recipes"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "recipes" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "preparation_time" time DEFAULT NULL, "cooking_time" time DEFAULT NULL, "description" text DEFAULT NULL, "public" boolean DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "user_id" integer NOT NULL, CONSTRAINT "fk_rails_9606fce865"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_recipes_on_user_id" ON "recipes" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "recipes" ("id","name","preparation_time","cooking_time","description","public","created_at","updated_at","user_id")
+                     SELECT "id","name","preparation_time","cooking_time","description","public","created_at","updated_at","user_id" FROM "arecipes"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE "arecipes"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.3ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221003131705"]]
+  [1m[36mTRANSACTION (3.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (3.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-10-19 09:46:46.009303"], ["updated_at", "2022-10-19 09:46:46.009303"]]
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2022-10-19 14:46:48 +0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 3.1ms | Allocations: 123)
+  Rendered layout layouts/application.html.erb (Duration: 16.4ms | Allocations: 6676)
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 0.0ms | Allocations: 9307)
+
+
+  
+ActionView::Template::Error (The asset "tailwind.css" is not present in the asset pipeline.
+):
+     5:     <meta name="viewport" content="width=device-width,initial-scale=1">
+     6:     <%= csrf_meta_tags %>
+     7:     <%= csp_meta_tag %>
+     8:     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+     9: 
+    10:     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    11:     <%= javascript_importmap_tags %>
+  
+app/views/layouts/application.html.erb:8
+Started GET "/" for ::1 at 2022-10-19 14:47:18 +0500
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.9ms | Allocations: 124)
+  Rendered layout layouts/application.html.erb (Duration: 512.5ms | Allocations: 95908)
+Completed 200 OK in 517ms (Views: 516.0ms | ActiveRecord: 0.0ms | Allocations: 96813)
+
+

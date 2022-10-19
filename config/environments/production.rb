@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require 'active_support/core_ext/integer/time'
 
 Rails.application.configure do
@@ -62,7 +60,7 @@ Rails.application.configure do
 
   # Use a real queuing backend for Active Job (and separate queues per environment).
   # config.active_job.queue_adapter     = :resque
-  # config.active_job.queue_name_prefix = "recipe_production"
+  # config.active_job.queue_name_prefix = "recipe_app_production"
 
   config.action_mailer.perform_caching = false
 
@@ -85,7 +83,7 @@ Rails.application.configure do
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new "app-name")
 
   if ENV['RAILS_LOG_TO_STDOUT'].present?
-    logger           = ActiveSupport::Logger.new($stdout)
+    logger           = ActiveSupport::Logger.new(STDOUT)
     logger.formatter = config.log_formatter
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
