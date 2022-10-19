@@ -23,5 +23,10 @@ RSpec.describe Food, type: :model do
               It has survived not only five centuries"
       expect(subject).to_not be_valid
     end
+
+    it 'price should not be less than 0' do
+      subject.price = -4
+      expect(subject).to_not be_valid
+    end
   end
 end
