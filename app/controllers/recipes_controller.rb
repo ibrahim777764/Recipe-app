@@ -1,11 +1,12 @@
 class RecipesController < ApplicationController
   def index
-    @user = User.find(params[:user_id])
-    @recipes = @user.recipes
+    @recipes = current_user.recipes
   end
 
   def show
-    @recipe = Recipe.find params[:id]
+    @recipe = Recipe.includes(:recipe_foods).find(params[:id])
+    @foods = current_user.foods.all
+    @recipe_food = RecipeFood.find_by(recipe_id: params[:id])
   end
 
   def new
@@ -18,13 +19,12 @@ class RecipesController < ApplicationController
   def recipe_params
     params
       .require(:recipe)
-      .permit(:name, :description)
+      .permit(:name, :description, :public, :preparation_time, :cooking_time)
       .merge(user_id: params[:user_id])
   end
 
   def create
-    @recipe = Recipe.new(recipe_params)
-    @recipe.user_id = current_user.id
+    @recipe = current_user.recipes.new(recipe_params)
     if @recipe.save
       redirect_to user_recipe_path(@recipe.user_id, @recipe.id)
     else
@@ -40,5 +40,15 @@ class RecipesController < ApplicationController
 
   def public_recipes
     @recipes = Recipe.where(public: true)
+  end
+
+  def toggle
+    recipe = Recipe.find(params[:id])
+    puts recipe.public
+    recipe.public = !recipe.public
+    recipe.save
+    recipe.public
+    user_recipe_path(current_user, recipe)
+    redirect_back(fallback_location: root_path)
   end
 end
